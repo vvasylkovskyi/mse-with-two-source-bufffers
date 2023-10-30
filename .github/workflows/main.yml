@@ -25,8 +25,9 @@ jobs:
         npm run build 
 
     - name: Deploy to GitHub Pages
-      uses: actions/deploy-pages@v2
+      uses: ad-m/github-push-action@v0.5.0
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        artifact_name: github-pages
-        publish_dir: ./dist  # The output directory of webpack
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
+        force: true
+        directory: ./dist
